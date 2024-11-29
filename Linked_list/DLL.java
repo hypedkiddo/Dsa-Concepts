@@ -41,8 +41,6 @@ public class DLL {
         temp.next=node;
         node.prev=temp;
     }
-
-
     class Node {
         int data;
         Node next;
