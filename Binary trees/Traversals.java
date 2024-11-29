@@ -52,13 +52,42 @@ public class Traversals {
             System.out.print(root.data+" ");
             Postorder(root.right);
         }
+        //Count number of nodes in a tree
+        public static int Count(Node root){
+             if(root==null){
+                 return 0;
+             }
+            int res1=Count(root.left);
+             int res2=Count(root.right);
+             return res1+res2+1;
+        }
+        //Sum of nodes in a tree
+        public static int sum(Node root){
+            if(root==null){
+                return 0;
+            }
+            int res1=sum(root.left);
+            int res2=sum(root.right);
+            return res1+res2+root.data;
+        }
+        
+        //Calculate Height of a Binary tree
+        public static int height(Node root){
+           if(root==null){
+               return 0;
+           }
+           int leftHeight=height(root.left);
+            int RightHeight=height(root.right);
+            return leftHeight+RightHeight+1;
+        }
     }
     public static void main(String[] args) {
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
-//        Binarytree tree=new Binarytree();
-        Node root=Binarytree.buildTree(nodes);
+//         Binarytree tree=new Binarytree();
+          Node root=Binarytree.buildTree(nodes);
 //        Binarytree.Postorder(root);
-        Binarytree.Inorder(root);
+//        Binarytree.Inorder(root);
+        System.out.println(Binarytree.sum(root));
 
 
     }
