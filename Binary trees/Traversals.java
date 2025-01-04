@@ -70,7 +70,7 @@ public class Traversals {
             int res2=sum(root.right);
             return res1+res2+root.data;
         }
-        
+
         //Calculate Height of a Binary tree
         public static int height(Node root){
            if(root==null){
