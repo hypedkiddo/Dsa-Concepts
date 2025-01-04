@@ -1,16 +1,24 @@
-public class Program1 {
+public class Basic_Recursion {
     public static void main(String[] args) {
-      print(10);  
+    //   printreverse(10);
+    //   System.out.println(factorial(5));
     }
     //print nos from n to 1
-    public static void print(int n){
+    public static void printreverse(int n){
         //base case
         if(n==1){
             System.out.println("1");
             return;
         }
         System.out.println(n);
-        print(n-1);
+        printreverse(n-1);
+    }
+    //find factorial of n
+    public static int factorial(int n){
+        if(n==0 || n==1){
+            return 1;
+        }
+        return n*factorial(n-1);
     }
 }
 
