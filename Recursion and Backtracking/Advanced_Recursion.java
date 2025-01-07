@@ -1,12 +1,6 @@
 public class Advanced_Recursion {
     public static void main(String[] args) {
-        boolean map[]=new boolean[26];
-        String s="apnancollege";
-        String ans="";
-        int i=0;
-        rmdup(s, ans, i, map);
-
-
+       System.out.println(pair(3));
     }
     
     //Tilling Problem (Amazon) 
@@ -43,6 +37,22 @@ public class Advanced_Recursion {
         }
         //Recursion
          rmdup(s,ans,i+1,arr);
+    }
 
+    //Friends pairing Problem
+    //Given n friends ,each one can remain single or canbe paired up with some other friend .Each friend can 
+    //friend can be paired only once.Find out the total number of ways in which friends can remain single or can be paired up
+    public static int pair(int n){
+        //base case
+       if (n==0 || n==1) {
+           return 1;
+       }
+        //kaam
+        //choice to remain single
+        int ans1=pair(n-1);
+        //choice to pair up
+        int ans2=(pair(n-2)) * (n-1);
+        //Recursive call
+        return ans1+ans2;
     }
 }
