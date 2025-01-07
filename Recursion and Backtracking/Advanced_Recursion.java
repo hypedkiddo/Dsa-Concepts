@@ -1,6 +1,6 @@
 public class Advanced_Recursion {
     public static void main(String[] args) {
-       System.out.println(pair(3));
+       System.out.println(pair(2));
     }
     
     //Tilling Problem (Amazon) 
@@ -10,7 +10,9 @@ public class Advanced_Recursion {
         if(n==0 || n==1){
             return 1;
         }
+        //Adding tile vertically
         int n1=TP(n-1);
+        //Adding tile horizontally
         int n2=TP(n-2);
         return n1+n2;
     }
@@ -55,4 +57,26 @@ public class Advanced_Recursion {
         //Recursive call
         return ans1+ans2;
     }
+    
+    //Print all binary strings of size N without consecutive ones
+    public static void printBinary(String ans,int n,int i){
+        //base
+        if(ans.length()==n){
+            System.out.println(ans);
+            return;
+        }
+        //choice to add 0
+        ans+='0';
+        printBinary(ans, n, i+1);
+        //choice to add 1
+        if(i==0){
+            ans+='1';
+            printBinary(ans, n, i+1);
+        }
+        if(i!=0 && ans.charAt(i-1)!='1'){
+            ans+='1';
+            printBinary(ans, n, i+1);
+        }
+    }
+
 }
