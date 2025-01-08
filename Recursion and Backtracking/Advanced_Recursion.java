@@ -1,10 +1,9 @@
 public class Advanced_Recursion {
     public static void main(String[] args) {
        String ans="";
-        int  i=0;
         int lp=-1;
         int n=3;
-        printBinary(ans, n, i, lp);
+        printBinary(ans, n, lp);
     }
     
     //Tilling Problem (Amazon) 
@@ -63,17 +62,18 @@ public class Advanced_Recursion {
     }
     
     //Print all binary strings of size N without consecutive ones
-    public static void printBinary(String ans, int n, int i, int lp) {
+    public static void printBinary(String ans, int n, int lp) {
     // base case
     if (ans.length() == n) {
         System.out.println(ans);
         return;
     }
     // choice to place 0
-    printBinary(ans + '0', n, i + 1, 0);
+    //This ans+'0' means tereko agle wale level pare add karna hai!!
+    printBinary(ans + '0', n, 0);
     // choice to place 1
     if (lp != 1) {
-        printBinary(ans + '1', n, i + 1, 1);
+        printBinary(ans + '1', n, 1);
     }
 }
 
