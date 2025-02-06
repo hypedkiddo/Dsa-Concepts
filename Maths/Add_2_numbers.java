@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.*;
 public class Add_2_numbers {
 
     //add 2 numbers without actually dividing them
@@ -40,12 +39,61 @@ public class Add_2_numbers {
         for(int i=1;i<=(int)(Math.sqrt(n));i++){
             if(n%i==0){
                 arr.add(i);
-                arr.add(n/i);
-                arr.add(0);
+                if((n/i)!=i) { //To prevent duplicate Entries
+                    arr.add(n / i);
+                }
             }
         }
         return arr;
     }
+
+    //check if a number is Prime or not
+    //TC:-Sqrt(n)
+    public  static boolean isPrime(int n){
+        int cnt=0;
+        n=(int)(Math.sqrt(n));
+        for(int i=1;i<=n;i++){
+            if(n%i==0){
+                cnt++;
+            }
+            if((n/i)!=i){
+                cnt++;
+            }
+        }
+        return cnt == 2; //advanced condensation of if statement
+    }
+
+    //Print Prime Factors of a number
+    //Approach 1:-O(Sqrt(n)*2*Sqrt(n))
+    public static ArrayList<Integer> prime_factors(int n) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        n = (int) (Math.sqrt(n));
+        for (int i = 2; i <= n; i++) {
+            if (n % i == 0 && isPrime(i)) {
+                arr.add(i);
+            }
+            if ((n / i) != 0 && isPrime(n / i)) {
+                arr.add(n / i);
+            }
+        }
+        return  arr;
+    }
+
+    //Approach 2:-O(Log(n))
+    public static ArrayList<Integer> prime_factors1(int n) {
+        n = (int) (Math.sqrt(n));
+        ArrayList<Integer> arr = new ArrayList<>();
+        for(int i=2;i<=n;i++){
+            if(n%i==0){
+                arr.add(i);
+                while(n%i==0){
+                    n=n/i;
+                }
+            }
+        }
+        return arr;
+    }
+
 
 
     public static void main(String[] args) {
