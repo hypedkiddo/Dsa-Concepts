@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Add_2_numbers {
 
     //add 2 numbers without actually dividing them
@@ -26,6 +29,21 @@ public class Add_2_numbers {
         }
         return ans;
 
+    }
+
+    //Print all divisors of a number
+    //Brute force is Checking all nos from 1 to n
+    //Optimised is all divisors exists in pairs so no
+    //need to check all numbers only check upto root(n)
+    public static ArrayList<Integer> print_all_divisors(int n){
+        ArrayList<Integer> arr=new ArrayList<>();
+        for(int i=1;i<=(int)(Math.sqrt(n));i++){
+            if(n%i==0){
+                arr.add(i);
+                arr.add(n/i);
+            }
+        }
+        return arr;
     }
 
 
