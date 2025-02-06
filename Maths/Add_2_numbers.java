@@ -41,6 +41,7 @@ public class Add_2_numbers {
             if(n%i==0){
                 arr.add(i);
                 arr.add(n/i);
+                arr.add(0);
             }
         }
         return arr;
