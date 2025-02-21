@@ -44,14 +44,15 @@ public class Basic_Recursion {
 
     //check if array is sorted or not
     public static boolean isSorted(int arr[], int i) {
+        //Base case
         if (i == arr.length - 1) {
             return true;
         }
-
+        //Kaam
         if (arr[i] > arr[i + 1]) {
             return false;
         }
-
+        //Call to the function
         return isSorted(arr, i + 1);
     }
     //WAF to find the first occurence of an element in the array
@@ -74,6 +75,7 @@ public class Basic_Recursion {
         if (i == arr.length) {
             return -1;
         }
+        //Here first travel to the end of the array
         int isFound = findLast(arr, i + 1, key);
 
         if (isFound == -1 && arr[i] == key) {

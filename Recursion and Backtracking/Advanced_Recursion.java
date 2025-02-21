@@ -1,9 +1,14 @@
+import java.util.Arrays;
+
+import java.util.*;
 public class Advanced_Recursion {
     public static void main(String[] args) {
-       String ans="";
-        int lp=-1;
-        int n=3;
-        printBinary(ans, n, lp);
+//       String ans="";
+//        int lp=-1;
+//        int n=3;
+//        printBinary(ans, n, lp);
+        String ans=Movex("axbcxxd","",0,0);
+        System.out.println(ans);
     }
     
     //Tilling Problem (Amazon) 
@@ -76,5 +81,37 @@ public class Advanced_Recursion {
         printBinary(ans + '1', n, 1);
     }
 }
+
+    //Classic tower of Hanoi Problem
+    public static void Hanoi(int n,char A,char C,char B){
+
+    }
+
+    //print String in Reveres order
+    public static String reverse(String p,String up,int i){
+        //Base case
+        if(p.length()==i){
+            return up;
+        }
+         return reverse(p,p.charAt(i)+up,i+1);
+    }
+    // Move all x to the end of the String
+    public static String Movex(String p,String up,int i,int count){
+        if(i==p.length()){
+            for(int j=1;j<=count;j++){
+                up=up+'x';
+            }
+            return up;
+        }
+        if(p.charAt(i)!='x'){
+            up=up+p.charAt(i);
+        }
+        else{
+            count++;
+        }
+        return Movex(p,up,i+1,count);
+    }
+
+
 
 }

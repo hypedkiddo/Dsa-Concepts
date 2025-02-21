@@ -81,7 +81,6 @@ public class Add_2_numbers {
 
     //Approach 2:-O(Log(n))
     public static ArrayList<Integer> prime_factors1(int n) {
-        n = (int) (Math.sqrt(n));
         ArrayList<Integer> arr = new ArrayList<>();
         for(int i=2;i<=n;i++){
             if(n%i==0){
@@ -93,6 +92,16 @@ public class Add_2_numbers {
         }
         return arr;
     }
+
+    //Finding Gcd by using Euclidean algorithm
+    public static int gcd(int a,int b){
+        a=Math.max(a,b);
+        if(b==0) {
+            return a;
+        }
+         return gcd(a%b,b);
+    }
+
 
 
 
