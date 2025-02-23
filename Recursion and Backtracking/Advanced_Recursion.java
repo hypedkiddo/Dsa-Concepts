@@ -7,7 +7,12 @@ public class Advanced_Recursion {
 //        int lp=-1;
 //        int n=3;
 //        printBinary(ans, n, lp);
-        String ans=Movex("axbcxxd","",0,0);
+//        String ans=Movex("axbcxxd","",0,0);
+//        System.out.println(ans);
+//        Subseq("abc","",0);
+        String digits="23";
+        ArrayList<String> ans = new ArrayList<>(); // Create a new list for each call
+        printCombo(digits, 0, "", ans);
         System.out.println(ans);
     }
     
@@ -110,6 +115,32 @@ public class Advanced_Recursion {
             count++;
         }
         return Movex(p,up,i+1,count);
+    }
+
+    //print all the subsequences of a String
+    public static void Subseq(String p,String up,int i){
+        if(p.length()==i){
+            System.out.println(up);
+            return;
+        }
+        //take it
+        Subseq(p,up+p.charAt(i),i+1);
+        //Leave it
+        Subseq(p,up,i+1);
+    }
+    //Letter combination of Phone number
+    public static String[] keypad={"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+
+    public static void printCombo(String digits,int idx,String combo, ArrayList<String> ans){
+        if(idx==digits.length()){
+            ans.add(combo);
+            return;
+        }
+        char currChar=digits.charAt(idx);
+        String mapping=keypad[currChar-'2']; //this will give the current ascii value of that character
+        for(int i=0;i<mapping.length();i++){
+            printCombo(digits, idx+1, combo + mapping.charAt(i), ans);
+        }
     }
 
 
