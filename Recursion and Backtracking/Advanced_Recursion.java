@@ -9,11 +9,11 @@ public class Advanced_Recursion {
 //        printBinary(ans, n, lp);
 //        String ans=Movex("axbcxxd","",0,0);
 //        System.out.println(ans);
-//        Subseq("abc","",0);
-        String digits="23";
-        ArrayList<String> ans = new ArrayList<>(); // Create a new list for each call
-        printCombo(digits, 0, "", ans);
-        System.out.println(ans);
+        Subseq("abc","",0);
+//        String digits="23";
+//        ArrayList<String> ans = new ArrayList<>(); // Create a new list for each call
+//        printCombo(digits, 0, "", ans);
+//        System.out.println(ans);
     }
     
     //Tilling Problem (Amazon) 
