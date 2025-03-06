@@ -50,6 +50,7 @@ public class nqueens {
         ans.add(temp);
     }
 
+    //Execution starts here
     public List<List<String>> solveNQueens(int n) {
         ans.clear();
         char[][] board = new char[n][n];
