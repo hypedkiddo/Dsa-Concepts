@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-import java.util.ArrayList;
+
 public class Rat_in_a_Maze {
 
    static boolean visited[][]=new boolean[4][4];
