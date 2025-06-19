@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Traversals {
     static class Node{
         int value;
@@ -24,6 +26,7 @@ public class Traversals {
             return newNode;
         }
         //Doing Preorder Traversal
+        //Time complexity:O(n)
         public static void Preorder(Node root){
             if(root == null){
                 return;
@@ -50,6 +53,41 @@ public class Traversals {
             PostOrder(root.right);
             System.out.print(root.value + " ");
         }
+        //Level order Traversal O(n)
+        public static void level(Node root){
+            if(root==null){
+              return;
+            }
+            Queue<Node> q=new LinkedList<>();
+            q.add(root);
+            q.add(null);
+
+            while(!q.isEmpty()){
+                Node node=q.remove();
+                if(node==null){
+                    System.out.println();
+                    if(q.isEmpty()){
+                        break;
+                    }
+                    else{
+                        q.add(null);
+                    }
+                }
+                else{
+                    System.out.println(node.value + " ");
+                    if(node.left!=null){
+                        q.add(node.left);
+                    }
+                    if(node.right!=null){
+                        q.add(node.right);
+                    }
+                }
+
+            }
+
+        }
+
+
     }
 
 
