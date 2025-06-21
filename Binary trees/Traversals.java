@@ -35,6 +35,26 @@ public class Traversals {
             Preorder(root.left);
             Preorder(root.right);
         }
+        //doing it iteratively
+        public List<Integer> preorderIterative(Node  root) {
+            List<Integer> ans=new ArrayList<>();
+            if(root==null){
+                return ans;
+            }
+            Stack<Node  > st=new Stack<Node >();
+            st.push(root);
+            while(!st.isEmpty()){
+                root=st.pop();
+                ans.add(root.value);
+                if(root.right!=null){
+                    st.push(root.right);
+                }
+                if(root.left!=null){
+                    st.push(root.left);
+                }
+            }
+            return ans;
+        }
         //Doing Inorder Traversals
         public static void Inorder(Node root){
             if(root == null){
@@ -44,6 +64,31 @@ public class Traversals {
             System.out.print(root.value + " ");
             Inorder(root.right);
         }
+        //Doing it in a iterative way
+        public List<Integer> inorderTraversal(Node root) {
+            List<Integer> ans = new ArrayList<>();
+            //handling edge case
+            if (root == null) {
+                return ans;
+            }
+            Node node=root;
+            Stack<Node> st = new Stack<Node>();
+            while (true) {
+                if(node!=null){
+                    st.push(node);
+                    node=node.left;
+                }
+                else{
+                    if(st.isEmpty()){
+                        break;
+                    }
+                    node=st.pop();
+                    ans.add(node.value);
+                    node=node.right;
+                }
+            }
+            return ans;
+        }
         //PostOrder
         public static void PostOrder(Node root){
             if(root == null){
@@ -52,6 +97,28 @@ public class Traversals {
             PostOrder(root.left);
             PostOrder(root.right);
             System.out.print(root.value + " ");
+        }
+        //Doing it the iterative Way
+        public List<Integer> postorderTraversal(Node root) {
+            List<Integer> ans = new ArrayList<>();
+            if (root == null) {
+                return ans;
+            }
+            Stack<Node> st1 = new Stack<Node>();
+            Node node = root;
+            st1.push(root);
+            while (!st1.isEmpty()) {
+                node=st1.pop();
+                if(node.left!=null){
+                    st1.push(node.left);
+                }
+                if(node.right!=null){
+                    st1.push(node.right);
+                }
+                ans.add(node.value);
+            }
+            Collections.reverse(ans);
+            return ans;
         }
         //Level order Traversal O(n)
         public static void level(Node root){
@@ -84,6 +151,18 @@ public class Traversals {
                 }
 
             }
+
+        }
+        //Calculating Height of a Binary Tree
+        //O(n)
+        public static int height(Node root){
+            if(root==null){
+                return 0;
+            }
+            int lh=height(root.left);
+            int rh=height(root.right);
+
+            return (Math.max(lh,rh)+1);
 
         }
 
