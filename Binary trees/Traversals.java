@@ -166,7 +166,30 @@ public class Traversals {
 
         }
 
+        //Doing Inorder preorder postorder in single traversal
+        List<List<Integer>> treeTraversal(Node root) {
+            List<List<Integer>> ans=new ArrayList<List<Integer>>();
+            List<Integer> pre=new ArrayList<>();
+            List<Integer> in=new ArrayList<>();
+            List<Integer> post=new ArrayList<>();
+            BinaryTree(root,pre,in,post);
+            ans.add(pre);
+            ans.add(in);
+            ans.add(post);
+            return ans;
 
+        }
+
+        void BinaryTree(Node root,List<Integer> pre,List<Integer> in,List<Integer> post) {
+            if(root==null){
+                return;
+            }
+            pre.add(root.value);
+            BinaryTree(root.left,pre,in,post);
+            in.add(root.value);
+            BinaryTree(root.right,pre,in,post);
+            post.add(root.value);
+        }
     }
 
 
