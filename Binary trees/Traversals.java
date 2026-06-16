@@ -179,7 +179,6 @@ public class Traversals {
             return ans;
 
         }
-
         void BinaryTree(Node root,List<Integer> pre,List<Integer> in,List<Integer> post) {
             if(root==null){
                 return;
